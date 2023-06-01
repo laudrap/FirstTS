@@ -1,3 +1,3 @@
 # FirstTS
 
-Ceci est mon premier projet Typescript
+Ceci est mon premier projet React

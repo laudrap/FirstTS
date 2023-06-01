@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css?family=Handlee&display=swap');
+
+
+/*Section prorpiétés*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+p {
+    font-size: 1.6rem;
+}
+
+
+h5 {
+    font-size: 11rem;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+h6 {
+    font-weight: 200;
+}
+
+
+.Bold {
+
+    font-weight: 300;
+}
+
+
+
+.police {
+    font-family: "Handlee";
+    color: #fff;
+}
+
+
+/*Section propriétés boîtes*/
+.pagecontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    padding: 0 1rem;
+    position: absolute;
+    display: flex;
+    top: 10%;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 50px;
+    /*background-color: rgba(0, 0, 0, 0.4);*/
+}
+
+.container {
+    width: 800px;
+    height: 800px;
+    padding: 0 1rem;
+    display: flex;
+    top: 10%;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+/*Section boîte info météo*/
+.top {
+    width: 100%;
+    margin-top: 8rem;
+    margin-bottom: 0rem;
+}
+
+.Middle {
+    display: flex;
+    justify-content: center;
+}
+
+.milieu {
+    display: flex;
+    justify-content: center;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    width: 80%;
+    height: 8rem;
+    margin-bottom: 10rem;
+    border-radius: 12px;
+    background-color: rgba(198, 198, 198, 0.4);
+
+}
+
+
+/*Section about us*/
+
+.about {
+    color: #f8f8f8;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    margin-top: 2em;
+    margin-right: 3em;
+    font-size: 1rem;
+}
+
+
+a[data-tool-tip] {
+    position: relative;
+    color: #fff;
+
+}
+
+a[data-tool-tip]::after {
+    content: attr(data-tool-tip);
+    display: block;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 1em 3em;
+    color: #fff;
+    border-radius: 5px;
+    top: 100%;
+    right: 0;
+    white-space: nowrap;
+    transform: scale(0);
+    transition: transform ease-out 150ms;
+
+}
+
+a[data-tool-tip]:hover::after {
+    transform: scale(1);
+}
+
+
+
+
+/*Section barre de recherche*/
+input {
+    padding: .7rem 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+::placeholder {
+    color: #f8f8f8;
+}
+
+.icone {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-right: 1.5em;
+    /*background-color: rgba(255, 255, 255, 0.4);*/
+}
+
+.search {
+    width: 400px;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    padding-right: 3em;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.propri_search {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+/*interface différentes grandeurs*/
+
+@media only screen and (max-width: 767px) {
+    .container {
+        max-width: 700px;
+        height: 100vh;
+    }
+}
+
+
+/*app sert à rien*/
+.app {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    position: absolute;
+    color: #fff;
+    /*background: url("./assets/hawaii_o.jpg") no-repeat center center/cover;*/
+}
