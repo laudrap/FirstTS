@@ -1,11 +1,9 @@
 
+import { Spinner } from '@fluentui/react-components';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
-import React, { useState, useEffect } from 'react'
-import { Spinner, dialogContentClassNames } from '@fluentui/react-components';
-import { Carousel } from 'react-bootstrap';
-import Slide from './Components/Slide'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import React, { useState } from 'react';
 
 const element = <FontAwesomeIcon icon={faMagnifyingGlass} size="2x" style={{ color: "#ffffff", }} />
 
@@ -30,6 +28,8 @@ const emojidic: Dico = {
     Squall: '🌫️',
     Tornado: '🌪️',
 };
+
+const name: string = 'souris';
 
 
 function App(): JSX.Element {
