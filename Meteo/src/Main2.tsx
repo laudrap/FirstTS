@@ -1,11 +1,10 @@
 
-import Slide from './Components/Slide'
 import App from './App'
 import Loginb from './Components/LoginButton'
 import Logoutb from './Components/LogoutButton'
-import { Log } from 'oidc-react'
-import "./index.css"
+import Slide from './Components/Slide'
 import Profil from './Components/Website'
+import "./index.css"
 
 
 const Main = () => {

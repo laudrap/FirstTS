@@ -1,10 +1,5 @@
 
-import MessageTemp from './Components/MessageTemp';
-import axios from 'axios';
-import IlFait from "./Components/IlFaitMessage";
-import BoiteEmoji from "./Components/BoiteEmoji";
-import React, { useState, useEffect } from 'react';
-import { dialogContentClassNames } from '@fluentui/react-components';
+import React, { useEffect } from 'react';
 
 interface Dico {
     [key: string]: string;
