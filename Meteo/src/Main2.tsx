@@ -5,6 +5,8 @@ import Logoutb from './Components/LogoutButton'
 import Slide from './Components/Slide'
 import Profil from './Components/Website'
 import "./index.css"
+import React, { useEffect, useState } from 'react'
+
 
 
 const Main = () => {

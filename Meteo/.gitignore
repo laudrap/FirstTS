@@ -27,3 +27,5 @@ dist-ssr
 #tuto React auth0
 
 .env
+
+server.tsx

@@ -28,7 +28,7 @@ interface AppState { data?: any; city: string };
 function app2(): JSX.Element {
     {
 
-        const [state, setState] = React.useState<AppState>({ city: "Honolulu" })
+        const [state, setState] = React.useState < AppState > ({ city: "Honolulu" })
 
 
         useEffect(() => {
