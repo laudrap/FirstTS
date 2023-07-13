@@ -44,7 +44,7 @@ async function getweather(req, res, next) {
 
         console.log("Fetching Data...");
 
-        const location = "los angeles";
+        const location = "paris";
 
         //checker la cache avant API
 
@@ -55,62 +55,37 @@ async function getweather(req, res, next) {
         if (cachee) {
             cachee = JSON.parse(cachee)
 
-            console.log({ ...cachee, 'source': 'cache' })
-
-            const country = cachee.sys.country;
-
-            const main = cachee.weather[0].main;
-
-            const feels = cachee.main.temp;
-
-            const feelslike = cachee.main.feels_like;
-
-            const ville = cachee.name;
-
-            const humid = cachee.main.humidity;
-
-            res.send(setResponse(country, main, feels, feelslike, ville, humid));
+            return ()
         }
-        // if not, we have a cache miss
+        //
 
-        else {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=ddcb7ebff34fe073865e71aa9b50c157`);
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=ddcb7ebff34fe073865e71aa9b50c157`);
 
-            const data = await response.json();
+        const data = await response.json();
 
-            await cliente.set(`${location}`, JSON.stringify(data), 'EX', 3600)
+        const country = data?.sys?.country;
 
-            console.log({ data, 'source': 'API' })
+        const main = data?.weather[0].main;
 
-            //cacher données individuelles
+        const feels = data?.main.temp;
 
-            const country = data?.sys?.country;
+        const feelslike = data?.main.feels_like;
 
-            const main = data?.weather[0].main;
+        const ville = data?.name;
 
-            const feels = data?.main.temp;
-
-            const feelslike = data?.main.feels_like;
-
-            const ville = data?.name;
-
-            const humid = data?.main.humidity;
-            res.send(setResponse(country, main, feels, feelslike, ville, humid));
-        }
+        const humid = data?.main.humidity;
 
         //Set to Redis
 
-
-
-        //await cliente.set(`${location}`, JSON.stringify(data), 'EX', 3600)
-
-
         //const weatherData = JSON.stringify({ country, main, feels, feelslike, ville, humid });
+
+        await cliente.set(`${location}`, JSON.stringify(data), 'EX', 3600)
+
         //await cliente.set(location, { 'country': country, 'condition': main, 'temp': feels, 'tempre': feelslike, 'ville': ville, 'humidite': humid }, 'EX', 3600);
 
-        //console.log(data)
+        console.log(data)
 
-        // res.send(setResponse(country, main, feels, feelslike, ville, humid));
+        res.send(setResponse(country, main, feels, feelslike, ville, humid));
         //res.send(data);
     } catch (err) {
         console.error(err);
@@ -149,6 +124,3 @@ app.get('/backend', getweather);
 
 
 app.listen(8701, () => { console.log(`Server started on port ${PORT}`) });
-
-
-
