@@ -1,7 +1,12 @@
 
-import React from 'react'
-import { CarouselItem } from 'react-bootstrap'
 import Carousel from 'react-bootstrap/Carousel'
+
+
+/**
+ * Returns a carousel automatically alterning between 3 images with a 2 sec. delay.
+ */
+
+
 
 function Slide() {
     return (

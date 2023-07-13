@@ -1,5 +1,8 @@
 import { useAuth0 } from '@auth0/auth0-react'
 
+/**
+ * Returns a log in button if a user isn't authenticated via auth0.
+ */
 
 
 const Loginb = () => {

@@ -5,13 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useState } from 'react';
 
-const element = <FontAwesomeIcon icon={faMagnifyingGlass} size="2x" style={{ color: "#ffffff", }} />
+const element = <FontAwesomeIcon icon={faMagnifyingGlass} size="2x" style={{ color: "#ffffff", }} />  //faMagnifyingGlass is the search emoji from fontawesome
 
 interface Dico {
     [key: string]: string;
 }
 
-const emojidic: Dico = {
+const emojidic: Dico = {      //dictionary of weather emojis according to the state of a town
     Thunderstorm: '⛈️',
     Drizzle: '🌧️',
     Rain: '🌧️',
@@ -29,8 +29,11 @@ const emojidic: Dico = {
     Tornado: '🌪️',
 };
 
-const name: string = 'souris';
 
+/**
+ * Returns an HTML webpage
+ * returns The temperature, the felt temperature, the humidity level, the state and the country of a chosen town
+ */
 
 function App(): JSX.Element {
     {
@@ -38,6 +41,12 @@ function App(): JSX.Element {
         const [location, setLocation] = useState('');
 
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=ddcb7ebff34fe073865e71aa9b50c157`;
+
+        /**
+    * Returns a state in the console
+    * param event - A KeyboardEvent
+    * returns JSON containing meterological informations about the searched town or an error
+    */
 
         const searchLocation = async (event: React.KeyboardEvent<HTMLInputElement>) => {
             if (event.key === 'Enter') {
@@ -67,7 +76,7 @@ function App(): JSX.Element {
                                     <input
                                         type="text"
                                         value={location}
-                                        onChange={(event) => setLocation(event.target.value)}
+                                        onChange={(event) => setLocation(event.target.value)}  //updating the location at the change of event
                                         onKeyPress={searchLocation}
                                         placeholder="Enter location"
                                     />
@@ -118,44 +127,3 @@ function App(): JSX.Element {
 
 export default App;
 
-//<div><MessageTemp /></div>
-//<div><BoiteEmoji /></div>
-//<div><IlFait /></div>
-
-////{data.weather ? <p className = 'Bold'> data.weather[0].main </p> : null}
-//                        <p className = 'Bold'>Cloudy</p>
-
-//const url = "https://api.openweathermap.org/data/2.5/weather?q=Honolulu&units=metric&appid=aa469b1405559ebe8a0fba5c665038c8";
-//const data = fetch(url)
-//.then(response => response.json())
-//.then(data => {
-  //const data = data;
- // console.log(data);
-//})
-
-//                            if ({data.weather[0].main} == "Clear")
-/*
-interface Dico {
-    [key: string]: string;
-}
-
-const emojidic: Dico = {
-    Thunderstorm: '\u{1F60E}',
-    Drizzle: '\u{1F60E}',
-    Rain: '\u{1F60E}',
-    Snow: '\u{1F60E}',
-    Clear: '\u{1F60E}',
-    Clouds: '\u{1F60E}',
-    Mist: '\u{1F60E}',
-    Smoke: '\u{1F60E}',
-    Haze: '\u{1F60E}',
-    Dust: '\u{1F60E}',
-    Fog: '\u{1F60E}',
-    Sand: '\u{1F60E}',
-    Ash: '\u{1F60E}',
-    Squall: '\u{1F60E}',
-    Tornado: '\u{1F60E}',
-};
-
-
-{emojidic[data.weather[0].main]}*/

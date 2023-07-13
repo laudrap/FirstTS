@@ -6,12 +6,21 @@ import ReactDOM from 'react-dom/client'
 import Main from "./Main2"
 import "./index.css"
 
-//prob avec ça
+
+/**
+ * Returns the domain value given by Auth0 or an empty string
+ */
 const domain = import.meta.env.VITE_AUTH0_DOMAIN ?? "";
+
+/**
+ * Returns the clienID value given by Auth0 or an empty string
+ */
 const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID ?? "";
 
 
-
+/**
+ * Renders the Main function from Main2.tsx file & implement OAuth  (est-ce que c'est la bonne affaire?)
+ */
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>

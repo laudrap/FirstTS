@@ -1,7 +1,9 @@
 
 import { useAuth0 } from "@auth0/auth0-react";
 
-
+/**
+ * Returns the name of the user if successfully authenticated 
+ */
 
 const Profil = () => {
     const { user, isAuthenticated } = useAuth0();

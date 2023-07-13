@@ -5,7 +5,13 @@ import Logoutb from './Components/LogoutButton'
 import Slide from './Components/Slide'
 import Profil from './Components/Website'
 import "./index.css"
-import React, { useEffect, useState } from 'react'
+
+
+
+/**
+ * Returns an HTML webpage
+ * returns the carousel in the background, then the Login or Logout function, the Profil function if the user is authenticated and the App function. 
+ */
 
 
 
@@ -25,12 +31,3 @@ const Main = () => {
 }
 
 export default Main
-
-//    return (
- ///   <div className='main'>
- //       <Slide />
-   //     <Loginb />
-   //     <Logoutb />
-   //     <App />
-   // </div>
-//)

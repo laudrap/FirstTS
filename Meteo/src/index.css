@@ -1,12 +1,21 @@
+/**
+ * Google font used for the weather box
+ */
+
 @import url('https://fonts.googleapis.com/css?family=Handlee&display=swap');
 
 
-/*Section prorpiétés*/
+/**
+ * Text Properties in App.tsx and Webstie.tsx
+ */
+
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
 
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -44,8 +53,10 @@ h6 {
 }
 
 
+/**
+ * Box Properties Section
+ */
 
-/*Section propriétés boîtes*/
 .pagecontainer {
     display: flex;
     justify-content: center;
@@ -131,7 +142,10 @@ h6 {
 }
 
 
-/*Section boîte info météo*/
+/**
+ * Weather Box Properties Section (App.tsx)
+ */
+
 .top {
     width: 100%;
     margin-top: 8rem;
@@ -163,7 +177,10 @@ h6 {
 }
 
 
-/*Section about us*/
+/**
+ * "About Us" Properties Section
+ */
+
 
 .about {
     color: #f8f8f8;
@@ -204,10 +221,10 @@ a[data-tool-tip]:hover::after {
 
 
 
+/**
+ * Input Properties Section
+ */
 
-
-
-/*Section barre de recherche*/
 input {
     padding: .7rem 1.5rem;
     font-size: 1.2rem;
@@ -248,24 +265,13 @@ input {
 }
 
 
-
-
-/*interface différentes grandeurs*/
+/**
+ * Not implemented : for different types of screen
+ */
 
 @media only screen and (max-width: 767px) {
     .container {
         max-width: 700px;
         height: 100vh;
     }
-}
-
-
-/*app sert à rien*/
-.app {
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    position: absolute;
-    color: #fff;
-    /*background: url("./assets/hawaii_o.jpg") no-repeat center center/cover;*/
 }

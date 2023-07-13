@@ -1,26 +1,47 @@
 
-const PORT = 8701
-//const fetch = require('node-fetch')
-const express = require('express')
-const app = express()
-const axios = require('axios')
-require('dotenv').config()
+const PORT = 8701;
+const REDIS_PORT = 6379;
+import fetch from 'node-fetch';
+
+import express from 'express'
+//const express = require('express');
+const app = express();
+
+import Redis from 'redis';
+import redis from 'redis';
+//const axios = require('axios');
+//require('dotenv').config();
+//const cors = require('cors');
 
 
-/*app.get("/api", (req, res) => {
-    res.json({ "users": ["userOne", "userTwo", "userThree"] })
-})*/
+//app.use(cors());
+const cliente = Redis.createClient(REDIS_PORT);
+
+await cliente.connect();
 
 
 
-/*app.get('/backend', (req, res, next) => {
-    res.send('Hello from the backend!');
-})*/
+
+function setResponse(country, main, feels, feelslike, ville, humid) {
+
+    return `<h2> Le pays est : ${country}. La condition est ${main}. Il fait ${feels} °C. Il fait un ressenti de ${feelslike} °C. Nous sommes dans la ville de ${ville} et le taux d'humidité est de ${humid} %. </h2>`
+
+}
+
+
+//function setResponse(country) {
+
+// return `<h2> Le pays est : ${country}.`;
+
+//}
 
 
 
-async function getapi(req, res, next) {
+async function getweather(req, res, next) {
     try {
+
+        console.log("hello people")
+
         console.log("Fetching Data...");
 
         const location = "paris";
@@ -29,9 +50,28 @@ async function getapi(req, res, next) {
 
         const data = await response.json();
 
+        const country = data?.sys?.country;
 
+        const main = data?.weather[0].main;
 
-        res.send(data);
+        const feels = data?.main.temp;
+
+        const feelslike = data?.main.feels_like;
+
+        const ville = data?.name;
+
+        const humid = data?.main.humidity;
+
+        //Set to Redis
+
+        //const weatherData = JSON.stringify({ country, main, feels, feelslike, ville, humid });
+
+        await cliente.set(location, JSON.stringify(data), 'EX', 3600)
+
+        //await cliente.set(location, { 'country': country, 'condition': main, 'temp': feels, 'tempre': feelslike, 'ville': ville, 'humidite': humid }, 'EX', 3600);
+
+        res.send(setResponse(country, main, feels, feelslike, ville, humid));
+        //res.send(data);
     } catch (err) {
         console.error(err);
         res.status(500);
@@ -39,8 +79,36 @@ async function getapi(req, res, next) {
 }
 
 
-app.get('/backend', getapi);
+//Cache middleware
+/*
+function cache (req, res, next){
+
+    
+    const country = data?.sys?.country;
+
+    const main = data?.weather[0].main;
+
+    const feels = data?.main.temp;
+
+    const feelslike = data?.main.feels_like;
+
+    const ville = data?.name;
+
+    const humid = data?.main.humidity;
+
+    cliente.get(ville) => {
+        if (err) throw err;
+
+        if(data !== null){
+            res.send(setResponse())
+        }
+    }
+}*/
+
+app.get('/backend', getweather);
 
 
 app.listen(8701, () => { console.log(`Server started on port ${PORT}`) });
+
+
 
