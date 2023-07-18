@@ -40,7 +40,9 @@ function App(): JSX.Element {
         const [data, setData] = useState<any>({});
         const [location, setLocation] = useState('');
 
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=ddcb7ebff34fe073865e71aa9b50c157`;
+        const url = "http://localhost:8701/backend";
+
+        // const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=ddcb7ebff34fe073865e71aa9b50c157`;
 
         /**
     * Returns a state in the console
@@ -85,33 +87,33 @@ function App(): JSX.Element {
                             <div className="container police">
                                 <div className="top">
                                     <div className="d-flex justify-content-center police">
-                                        {data?.name ? (<h1>{data.name}</h1>) : null}
+                                        {data ? (<h1>{data.ville}</h1>) : null}
                                     </div>
                                     <div className="d-flex justify-content-center  police">
-                                        {data?.sys ? (<h6>{data.sys.country}</h6>) : null}
+                                        {data ? (<h6>{data.country}</h6>) : null}
 
                                     </div>
                                 </div>
                                 <div className="Middle">
                                     <div>
-                                        {data?.main ? (<h5 className="Bold police">{data.main.temp} °C</h5>) : null}
+                                        {data ? (<h5 className="Bold police">{data.feels} °C</h5>) : null}
                                     </div>
                                 </div>
-                                <div className="milieu">{data?.weather && data?.main ?
+                                <div className="milieu">{data ?
                                     <div className="bottom">
                                         <div className="État">
-                                            <p className="Bold police">{data.weather[0].main}</p>
+                                            <p className="Bold police">{data.main}</p>
                                             <p style={{ fontSize: '35px' }}>
-                                                {emojidic[data.weather[0].main]}
+                                                {emojidic[data.main]}
                                             </p>
                                         </div>
                                         <div className="Feels">
                                             <p className='Bold police cupcake'>Feels Like</p>
-                                            <p className="police">{data.main.feels_like} °C</p>
+                                            <p className="police">{data.feelslike} °C</p>
                                         </div>
                                         <div className="Hum">
                                             <p className="Bold police">Humidity</p>
-                                            <p className="police">{data.main.humidity} %</p>
+                                            <p className="police">{data.humid} %</p>
                                         </div>
                                     </div> : <Spinner size='large' />}
                                 </div>
