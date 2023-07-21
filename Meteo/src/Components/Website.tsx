@@ -2,7 +2,8 @@
 import { useAuth0 } from "@auth0/auth0-react";
 
 /**
- * Returns the name of the user if successfully authenticated 
+ * Renders the profile component with user information.
+ * @returns {JSX.Element|null} The rendered profile component if authenticated, otherwise null.
  */
 
 const Profil = () => {

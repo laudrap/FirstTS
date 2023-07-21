@@ -1,9 +1,10 @@
 import { useAuth0 } from '@auth0/auth0-react'
 
-/**
- * Returns a log in button if a user isn't authenticated via auth0.
- */
 
+/**
+ * Renders a login button if a user isn't authenticated via Auth0.
+ * @returns {JSX.Element|null} The rendered login button element if not authenticated, otherwise null.
+ */
 
 const Loginb = () => {
     const { loginWithRedirect, isAuthenticated } = useAuth0();

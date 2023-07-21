@@ -8,18 +8,19 @@ import "./index.css"
 
 
 /**
- * Returns the domain value given by Auth0 or an empty string
+ * The Auth0 domain value fetched from Vite environment variables or an empty string if not found.
  */
 const domain = import.meta.env.VITE_AUTH0_DOMAIN ?? "";
 
 /**
- * Returns the clienID value given by Auth0 or an empty string
+ * The Auth0 clientID value fetched from Vite environment variables or an empty string if not found.
  */
 const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID ?? "";
 
 
 /**
- * Renders the Main function from Main2.tsx file & implement OAuth  (est-ce que c'est la bonne affaire?)
+ * Renders the Main component from Main2.tsx file and implements OAuth with Auth0.
+ * @returns {void}
  */
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

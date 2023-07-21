@@ -5,13 +5,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useState } from 'react';
 
-const element = <FontAwesomeIcon icon={faMagnifyingGlass} size="2x" style={{ color: "#ffffff", }} />  //faMagnifyingGlass is the search emoji from fontawesome
+//faMagnifyingGlass is the search emoji from fontawesome
+const element = <FontAwesomeIcon icon={faMagnifyingGlass} size="2x" style={{ color: "#ffffff", }} />
 
 interface Dico {
     [key: string]: string;
 }
 
-const emojidic: Dico = {      //dictionary of weather emojis according to the state of a town
+//Dictionary of weather emojis according to the state of a town
+const emojidic: Dico = {
     Thunderstorm: '⛈️',
     Drizzle: '🌧️',
     Rain: '🌧️',
@@ -31,8 +33,8 @@ const emojidic: Dico = {      //dictionary of weather emojis according to the st
 
 
 /**
- * Returns an HTML webpage
- * returns The temperature, the felt temperature, the humidity level, the state and the country of a chosen town
+ * HTML webpage that displays the temperature, felt temperature, humidity level, state, and country of a chosen town.
+ * @returns {JSX.Element} The rendered HTML webpage.
  */
 
 function App(): JSX.Element {
@@ -40,15 +42,14 @@ function App(): JSX.Element {
         const [data, setData] = useState<any>({});
         const [location, setLocation] = useState('');
 
+        // Replace the URL with the actual backend URL or API endpoint for weather data
         const url = "http://localhost:8701/backend";
 
-        // const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=ddcb7ebff34fe073865e71aa9b50c157`;
-
         /**
-    * Returns a state in the console
-    * param event - A KeyboardEvent
-    * returns JSON containing meterological informations about the searched town or an error
-    */
+       * Fetches meterological information about the searched town.
+       * @param {React.KeyboardEvent<HTMLInputElement>} event - The KeyboardEvent.
+       * @returns {Promise<void>} A promise that resolves with JSON containing meterological information about the searched town or an error.
+       */
 
         const searchLocation = async (event: React.KeyboardEvent<HTMLInputElement>) => {
             if (event.key === 'Enter') {

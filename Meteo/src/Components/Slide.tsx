@@ -3,10 +3,9 @@ import Carousel from 'react-bootstrap/Carousel'
 
 
 /**
- * Returns a carousel automatically alterning between 3 images with a 2 sec. delay.
+ * Renders a three-image carousel with a 2-second interval.
+ * @returns {JSX.Element} The rendered carousel component.
  */
-
-
 
 function Slide() {
     return (

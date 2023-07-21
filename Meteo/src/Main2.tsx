@@ -9,11 +9,10 @@ import "./index.css"
 
 
 /**
- * Returns an HTML webpage
- * returns the carousel in the background, then the Login or Logout function, the Profil function if the user is authenticated and the App function. 
+ * Renders an HTML webpage with a carousel in the background, login/logout buttons,
+ * a profile section if the user is authenticated, and the main application component.
+ * @returns {JSX.Element} The rendered HTML webpage.
  */
-
-
 
 const Main = () => {
 
