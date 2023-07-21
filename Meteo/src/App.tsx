@@ -54,7 +54,11 @@ function App(): JSX.Element {
         const searchLocation = async (event: React.KeyboardEvent<HTMLInputElement>) => {
             if (event.key === 'Enter') {
                 try {
-                    const response = await axios.get(url);
+                    const response = await axios.get(url, {
+                        params: {
+                            loc: location // Include the 'location' parameter in the API request
+                        }
+                    });
                     setData(response.data);
                     console.log(response.data);
                 } catch (error) {
@@ -97,10 +101,10 @@ function App(): JSX.Element {
                                 </div>
                                 <div className="Middle">
                                     <div>
-                                        {data ? (<h5 className="Bold police">{data.feels} °C</h5>) : null}
+                                        {data.feels ? (<h5 className="Bold police">{data.feels} °C</h5>) : null}
                                     </div>
                                 </div>
-                                <div className="milieu">{data ?
+                                <div className="milieu">{(data.main && data.feelslike && data.humid) ?
                                     <div className="bottom">
                                         <div className="État">
                                             <p className="Bold police">{data.main}</p>
