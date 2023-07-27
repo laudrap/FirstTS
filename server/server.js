@@ -221,28 +221,18 @@ async function getweather(req, res) {
             const ville = cachee.name
             const humid = cachee.main.humidity
 
-            // Send the response using the extracted data from cache
+            /** Send the response using the extracted data from cache */
             res.send(setResponse(country, main, feels, feelslike, ville, humid))
         } else {
-            // Get an access token required for API authentication
-            // eslint-disable-next-line no-undef
-            const token = await getAccessTokenSilently()
-
             // Make the API request to fetch weather data for the specified location
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=ddcb7ebff34fe073865e71aa9b50c157`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                }
-            )
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=ddcb7ebff34fe073865e71aa9b50c157`)
 
             // Parse the API response into JSON format
             const data = await response.json()
 
             try {
                 // Cache the fetched data in Redis for future use with a time-to-live of 1 hour (3600 seconds)
-                await cliente.set(`temp:${location}`, JSON.stringify(data), 'EX', 3600)
+                await cliente.set(`temp:${location}`, JSON.stringify(data), { EX: 60 * 60 * 24 })
             } catch {
                 // If caching fails, log an error message
                 console.err('Could not set the weather in redis')
