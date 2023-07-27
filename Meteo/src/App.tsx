@@ -1,4 +1,5 @@
 
+import { useAuth0 } from '@auth0/auth0-react';
 import { Spinner } from '@fluentui/react-components';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -41,7 +42,7 @@ function App(): JSX.Element {
     {
         const [data, setData] = useState<any>({});
         const [location, setLocation] = useState('');
-
+        const auth = useAuth0();
         // Replace the URL with the actual backend URL or API endpoint for weather data
         const url = "http://localhost:8701/backend";
 
@@ -54,10 +55,23 @@ function App(): JSX.Element {
         const searchLocation = async (event: React.KeyboardEvent<HTMLInputElement>) => {
             if (event.key === 'Enter') {
                 try {
+                    const token = await auth.getAccessTokenSilently({
+                        authorizationParams: {
+                        },
+                    });
+
                     const response = await axios.get(url, {
                         params: {
                             loc: location // Include the 'location' parameter in the API request
+                        },
+                        headers: {
+                            Authorization: `Bearer ${token}`
                         }
+
+                        // withCredentials: true,
+                        //headers: {
+                        //'Access-Control-Allow-Origin': '*',
+                        //},
                     });
                     setData(response.data);
                     console.log(response.data);
@@ -120,7 +134,7 @@ function App(): JSX.Element {
                                             <p className="Bold police">Humidity</p>
                                             <p className="police">{data.humid} %</p>
                                         </div>
-                                    </div> : <Spinner size='large' />}
+                                    </div> : (<div className='boxspinner'><div className='spin'> <Spinner size='huge' /> </div></div>)}
                                 </div>
                             </div>
                         </div>

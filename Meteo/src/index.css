@@ -275,3 +275,24 @@ input {
         height: 100vh;
     }
 }
+
+/**
+ * Spinner
+ */
+
+.spin {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+}
+
+.boxspinner {
+    padding: 5%;
+    width: 55%;
+    height: 55%;
+    display: flex;
+    margin-bottom: 58%;
+    justify-content: center;
+}
