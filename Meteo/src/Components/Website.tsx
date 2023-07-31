@@ -47,8 +47,13 @@ const Profil = () => {
     }, [isAuthenticated, user?.sub]);
 
     if (!isAuthenticated) {
-        return null;
+        return (<div className='need'>
+            <div className="boneed" >
+                <h1 className="police">You need to sign!</h1>
+            </div>
+        </div>);
     }
+
 
     return (
         isAuthenticated && (
@@ -57,7 +62,7 @@ const Profil = () => {
                     {userMetadata ? (
                         <h1 className="police">Welcome {userMetadata?.name} !</h1>
                     ) : (
-                        "No user metadata defined"
+                        <h1 className="police">Welcome, you've signed in!</h1>
                     )}
                 </div>
             </div>

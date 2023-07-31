@@ -296,3 +296,32 @@ input {
     margin-bottom: 58%;
     justify-content: center;
 }
+
+.NeedSI {
+    background-color: aquamarine;
+    width: 55%;
+    height: 55%;
+    margin-top: 0%;
+    position: absolute;
+}
+
+.need {
+    width: 100%;
+    height: 100%;
+    /*background-color: rgba(0, 0, 0, 0.4);*/
+    padding: 1rem;
+    position: absolute;
+    top: 0%;
+    z-index: 1;
+}
+
+.boneed {
+    color: #f8f8f8;
+    /*background-color: rgba(0, 0, 0, 0.4);*/
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15%;
+
+}
