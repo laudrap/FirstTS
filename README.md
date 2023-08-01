@@ -1,5 +1,5 @@
 
-# Meteo application with auth0
+# Weather application with auth0
 
 This app allows you to search the weather of your chosen location once you're logged in with auth0. If you've searched the same city in the last hour, the backend retrieves the weather values from the cache. If not, a request is made to the OpenWeather API.
 
@@ -46,17 +46,58 @@ For a personalized welcome, you can either use :
 
 Note : You can also sign in with an email address. 
 
-### <u> Why Auth0 ? </u>
+#### <u> Why Auth0 as a third-party authentication app ? </u>
 
 - Convenient to install
 
-- Allows us to create our own custom connection
+- Allows to create our own custom connection by giving us access to third-party authentication providers 
 
 - Regulations compliant
+
+
+## Server
+
+### <u> Server's Functions </u>
+
+- #### Security 
+    - Hides custom API key given by OpenWeather from the public
+
+
+- #### Performance Optimization
+    - Implements Redis Cache
+
+
+- #### Responsible to manage the application's datas
+    - Interacts with OpenWeather and the Cache
+    - Processes Datas
+
+
+- #### Authorization 
+    - Validates the authenticity of the JWT given by Auth0
+    - Decides if the access is granted
+
+- #### Error Handling
+
+
+#### <u> Why use Redis ? </u>
+
+- Optimize the number or requests made to OpenWeather -> less $$
+
+- Allows automatic expiration of the researched weathers after an hour
+
+- Low latency
+
 
 
 ## 🙌 Contributing
 
 You can't 😈
 
-eslint
+## 💅 Formatting
+
+- Check out both eslint files (server and Meteo)
+
+
+## 📄 License
+
+- Source code in this repository is made available under the [MIT License](https://github.com/FlowiseAI/Flowise/blob/master/LICENSE.md).

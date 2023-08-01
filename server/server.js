@@ -193,11 +193,11 @@ async function getweather(req, res) {
         */
         const location = req.query.loc
 
-        // Check if the 'location' parameter is provided. If not, send a 400 error response and a console log error message
+        /* Check if the 'location' parameter is provided. If not, send a 400 error response and a console log error message */
         if (!location) { res.send('message, ', 400); console.log('empty location requested.'); return }
 
-        // Attempt to retrieve cached data for the given 'location' from the 'cliente' object.
-        // If an error occurs during retrieval, set 'cachee' to undefined.
+        /* Attempt to retrieve cached data for the given 'location' from the 'cliente' object. */
+        /* If an error occurs during retrieval, set 'cachee' to undefined. */
         let cachee
         try {
             cachee = await cliente.get(`temp:${location}`)
@@ -205,15 +205,15 @@ async function getweather(req, res) {
             cachee = undefined
         }
 
-        // Check if weather data is available in the cache
+        /* Check if weather data is available in the cache */
         if (cachee) {
-            // Parse the cached JSON data
+            /* Parse the cached JSON data */
             cachee = JSON.parse(cachee)
 
-            // Log the cached data with a source label
+            /* Log the cached data with a source label */
             console.log({ ...cachee, source: 'cache' })
 
-            // Extract individual data from the cached object
+            /* Extract individual data from the cached object */
             const country = cachee.sys.country
             const main = cachee.weather[0].main
             const feels = cachee.main.temp
@@ -224,24 +224,24 @@ async function getweather(req, res) {
             /** Send the response using the extracted data from cache */
             res.send(setResponse(country, main, feels, feelslike, ville, humid))
         } else {
-            // Make the API request to fetch weather data for the specified location
+            /* Make the API request to fetch weather data for the specified location */
             const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=ddcb7ebff34fe073865e71aa9b50c157`)
 
-            // Parse the API response into JSON format
+            /* Parse the API response into JSON format */
             const data = await response.json()
 
             try {
-                // Cache the fetched data in Redis for future use with a time-to-live of 1 hour (3600 seconds)
+                /* Cache the fetched data in Redis for future use with a time-to-live of 1 hour (3600 seconds) */
                 await cliente.set(`temp:${location}`, JSON.stringify(data), { EX: 60 * 60 * 24 })
             } catch {
-                // If caching fails, log an error message
+                /* If caching fails, log an error message */
                 console.err('Could not set the weather in redis')
             }
 
-            // Log the fetched data with a source label
+            /* Log the fetched data with a source label */
             console.log({ data, source: 'API' })
 
-            // Extract individual data from the API response object
+            /* Extract individual data from the API response object */
             const country = data?.sys?.country
             const main = data?.weather[0].main
             const feels = data?.main.temp
@@ -249,7 +249,7 @@ async function getweather(req, res) {
             const ville = data?.name
             const humid = data?.main.humidity
 
-            // Send the response using the extracted data from the API
+            /* Send the response using the extracted data from the API */
             res.send(setResponse(country, main, feels, feelslike, ville, humid))
         }
     } catch (err) {
