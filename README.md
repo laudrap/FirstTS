@@ -108,4 +108,4 @@ You can't 😈
 
 ## 📄 License
 
-- Source code in this repository is made available under the [MIT License](https://github.com/FlowiseAI/Flowise/blob/master/LICENSE.md).
+- Source code in this repository is made available under the [MIT License](https://github.com/laudrap/FirstTS/blob/main/LICENSE.md).
