@@ -96,7 +96,7 @@ Note : You can also sign in with an email address.
     - ***LogoutButton.tsx*** : Logoutb component renders a logout button if a user is authenticated via Auth0.
     - ***Slide.tsx*** : Slide function renders a three-images carousel in the background of the website (automatic switch -> 2 sec. intervals)
     - ***Website.tsx*** : Profile component renders a welcome message when the user is logged in or displays "You need to sign!" when the user isn't. 
-    - ***App.tsx*** : App function displays the temperature, felt temperature, humidity level, state, and country of a searched town. Implements the search bar. 
+    - ***App.tsx*** : App function displays the temperature, felt temperature, humidity level, state, and country of a searched town. Implements the search bar. When the user want to research a town, he/she has to press the "Enter" keyboard. 
     - ***Main2.tsx*** : Main component displays the right order in which components will be rendered on the HTML webpage.
      - ***main.tsx*** : Renders the Main components from Main2.tsx on an HTML webpage and implements OAuth with Auth0.
      - ***index.css***: Contains all the css code. 
