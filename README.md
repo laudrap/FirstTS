@@ -69,7 +69,7 @@ Note : You can also sign in with an email address.
 
 
 - #### Responsible to manage the application's datas
-    - Interacts with OpenWeather and the Cache
+    - Interacts with OpenWeather and the cache
     - Processes Datas
 
 - #### Authorization 
