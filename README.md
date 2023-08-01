@@ -1,5 +1,5 @@
 
-# Weather application with auth0
+# Weather application with Auth0
 
 This app allows you to search the weather of your chosen location once you're logged in with auth0. If you've searched the same city in the last hour, the backend retrieves the weather values from the cache. If not, a request is made to the OpenWeather API.
 
