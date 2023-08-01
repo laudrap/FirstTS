@@ -56,7 +56,7 @@ Note : You can also sign in with an email address.
 
 
 ## Server
-<mark>***Backend directory***</mark>
+<mark>***Backend directory***</mark> : _written in JS_
 
 ### <u> Server's Functions </u>
 
@@ -89,7 +89,7 @@ Note : You can also sign in with an email address.
 
 
 ## Meteo
-<mark>***Frontend directory***</mark>
+<mark>***Frontend directory***</mark> : _written in TS_
 
 - #### Modular Components & files
     - ***LoginButton.tsx*** : Loginb component renders a login button if a user isn't authenticated via Auth0.
