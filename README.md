@@ -74,7 +74,7 @@ Note : You can also sign in with an email address.
 
 - #### Authorization 
     - Validates the authenticity of the JWT given by Auth0
-    - Decides if the access is granted
+    - Grants access
 
 - #### Error Handling
 
