@@ -99,6 +99,7 @@ Note : You can also sign in with an email address.
     - ***App.tsx*** : App function displays the temperature, felt temperature, humidity level, state, and country of a searched town. Implements the search bar. 
     - ***Main2.tsx*** : Main component displays the right order in which components will be rendered on the HTML webpage.
      - ***main.tsx*** : Renders the Main components from Main2.tsx on an HTML webpage and implements OAuth with Auth0.
+     - ***index.css***: Contains all the css code. 
 
 
 ## 🙌 Contributing
