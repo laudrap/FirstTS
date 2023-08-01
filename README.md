@@ -65,12 +65,12 @@ Note : You can also sign in with an email address.
 
 
 - #### Performance Optimization
-    - Implements Redis Cache
+    - Implements Redis cache
 
 
 - #### Responsible to manage the application's datas
     - Interacts with OpenWeather and the cache
-    - Processes Datas
+    - Processes datas
 
 - #### Authorization 
     - Validates the authenticity of the JWT given by Auth0
