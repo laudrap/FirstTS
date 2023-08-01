@@ -88,6 +88,14 @@ Note : You can also sign in with an email address.
 - Low latency
 
 
+## Meteo
+
+- #### Data Visualization
+    - Visually appealing manner to present the weather
+
+- #### 
+    - Visually appealing manner to present the weather
+
 
 ## 🙌 Contributing
 
