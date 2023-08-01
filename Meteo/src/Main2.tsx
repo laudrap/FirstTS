@@ -9,8 +9,7 @@ import "./index.css"
 
 
 /**
- * Renders an HTML webpage with a carousel in the background, login/logout buttons,
- * a profile section if the user is authenticated, and the main application component.
+ * Displays the right order in which components will be render on the HTML webpage.
  * @returns {JSX.Element} The rendered HTML webpage.
  */
 

@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel'
 
 
 /**
- * Renders a three-image carousel with a 2-second interval.
+ * Renders a three-images carousel with a 2-second interval.
  * @returns {JSX.Element} The rendered carousel component.
  */
 

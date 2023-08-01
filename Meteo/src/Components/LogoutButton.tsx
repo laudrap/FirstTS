@@ -3,7 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 
 /**
- * Renders a logout button if a user is authenticated via auth0.
+ * Renders a logout button if a user is authenticated via Auth0.
  * @returns {JSX.Element|null} The rendered logout button element if authenticated, otherwise null.
  */
 

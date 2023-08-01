@@ -56,6 +56,7 @@ Note : You can also sign in with an email address.
 
 
 ## Server
+<mark>***Backend directory***</mark>
 
 ### <u> Server's Functions </u>
 
@@ -70,7 +71,6 @@ Note : You can also sign in with an email address.
 - #### Responsible to manage the application's datas
     - Interacts with OpenWeather and the Cache
     - Processes Datas
-
 
 - #### Authorization 
     - Validates the authenticity of the JWT given by Auth0
@@ -89,17 +89,21 @@ Note : You can also sign in with an email address.
 
 
 ## Meteo
+<mark>***Frontend directory***</mark>
 
-- #### Data Visualization
-    - Visually appealing manner to present the weather
-
-- #### 
-    - Visually appealing manner to present the weather
+- #### Modular Components & files
+    - ***LoginButton.tsx*** : Loginb component renders a login button if a user isn't authenticated via Auth0.
+    - ***LogoutButton.tsx*** : Logoutb component renders a logout button if a user is authenticated via Auth0.
+    - ***Slide.tsx*** : Slide function renders a three-images carousel in the background of the website (automatic switch -> 2 sec. intervals)
+    - ***Website.tsx*** : Profile component renders a welcome message when the user is logged in or displays "You need to sign!" when the user isn't. 
+    - ***App.tsx*** : App function displays the temperature, felt temperature, humidity level, state, and country of a searched town. Implements the search bar. 
+    - ***Main2.tsx*** : Main component displays the right order in which components will be rendered on the HTML webpage.
+     - ***main.tsx*** : Renders the Main components from Main2.tsx on an HTML webpage and implements OAuth with Auth0.
 
 
 ## 🙌 Contributing
 
-You can't 😈
+- You can't 😈
 
 ## 💅 Formatting
 
