@@ -43,15 +43,12 @@ function App(): JSX.Element {
         const [data, setData] = useState<any>({});
         const [location, setLocation] = useState('');
         const auth = useAuth0();
-        // Replace the URL with the actual backend URL or API endpoint for weather data
         const url = "http://localhost:8701/backend";
 
         /**
-       * Fetches meterological information about the searched town.
-       * @param {React.KeyboardEvent<HTMLInputElement>} event - The KeyboardEvent.
-       * @returns {Promise<void>} A promise that resolves with JSON containing meterological information about the searched town or an error.
-       */
-
+         * Events search location
+         * @param event 
+         */
         const searchLocation = async (event: React.KeyboardEvent<HTMLInputElement>) => {
             if (event.key === 'Enter') {
                 try {

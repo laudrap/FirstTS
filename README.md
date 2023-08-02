@@ -55,8 +55,9 @@ Note : You can also sign in with an email address.
 - Regulations compliant
 
 
-## Server
+## Server 
 <mark>***Backend directory***</mark> : _written in JS_
+
 
 ### <u> Server's Functions </u>
 
@@ -87,6 +88,8 @@ Note : You can also sign in with an email address.
 
 - Low latency
 
+
+Note : Click [here](https://github.com/laudrap/FirstTS/edit/main/server/ReadMe.md) for additional information about the server.
 
 ## Meteo
 <mark>***Frontend directory***</mark> : _written in TS_
