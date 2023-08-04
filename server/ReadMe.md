@@ -170,7 +170,9 @@ Note :  /backend shows the values without being carefully presented.
 
 ## A little bit more about the cache
 
-- To improve performance and reduce API calls : server caches datas in Redis. If the weather data for a specific location is available in the cache, the server will retrieve it from Redis instead of making a new API call. The cached data has a time-to-live (TTL) of 1 hour (60 * 60 seconds).
+- To improve performance and reduce API calls the server caches datas in Redis. 
+
+- If the weather data for a specific location is available in the cache, the server will retrieve it from Redis instead of making a new API call. The cached data has a time-to-live (TTL) of 1 hour (60 * 60 seconds).
 
 
 ## Note
