@@ -232,7 +232,7 @@ async function getweather(req, res) {
 
             try {
                 /* Cache the fetched data in Redis for future use with a time-to-live of 1 hour (3600 seconds) */
-                await cliente.set(`temp:${location}`, JSON.stringify(data), { EX: 60 * 60 * 24 })
+                await cliente.set(`temp:${location}`, JSON.stringify(data), { EX: 60 * 60 })
             } catch {
                 /* If caching fails, log an error message */
                 console.err('Could not set the weather in redis')

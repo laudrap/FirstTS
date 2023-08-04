@@ -54,6 +54,8 @@ Note : You can also sign in with an email address.
 
 - Regulations compliant
 
+Note: For more information about the authentication implementation, click [here](https://auth0.com/blog/complete-guide-to-react-user-authentication/). 
+
 
 ## Server 
 <mark>***Backend directory***</mark> : _written in JS_
