@@ -84,7 +84,7 @@ const AUTH_AUDIENCE = process.env.AUTH_AUDIENCE
 const app = express()
 
 /**
- * Enable Cross-Origin Resource Sharing (CORS) middleware for the Express application.
+ * Enables Cross-Origin Resource Sharing (CORS) middleware for the Express application.
  * @function
  */
 app.use(cors())
