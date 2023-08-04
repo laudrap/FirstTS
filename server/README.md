@@ -37,72 +37,15 @@ npm i
 
 ### Dependencies version requirements and installation : 
 
-Note 1: You can also see the command line to install each dependency individually.
-Note 2: The following dependencies should be installed using either npm or yarn. <mark>Choose one and stick to it for security purposes? </mark>
+- [nodejs](https://nodejs.org/en/download) : >=18.X
 
+- [redis](https://redis.io/docs/getting-started/installation/)
 
-- [cors](https://www.npmjs.com/package/cors) : ^2.8.5
-```
-npm install cors
-```
+### External Requirements
 
-- [dotenv](https://www.npmjs.com/package/dotenv) : ^16.3.1
-```
-npm install dotenv --save
-```
+- To use the app, you must have an application with Auth0.
 
-- [express](http://expressjs.com/en/starter/installing.html) : ^4.18.2
-```
-npm install express
-```
-
-- [express-oauth2-jwt-bearer](https://www.npmjs.com/package/express-oauth2-jwt-bearer) : ^1.5.0
-```
-npm install express-oauth2-jwt-bearer
-```
-
-- [node-fetch](https://www.npmjs.com/package/node-fetch) : ^2.6.12
-
-```
-npm install node-fetch
-```
-
-Note : Node-fetch is an ES module (ESM). That's why "type": "module" is added in package.js. 
-
-To use correctly the package you must import it this way : 
-
-```
-import fetch from 'node-fetch';
-```
-
-
-- [redis](https://redis.io/docs/getting-started/installation/) : ^4.6.7
-
-```
-sudo apt-get update
-sudo apt install redis
-```
-
-#### _To install all the dependencies at the same time :_ 
-
-```
-npm install node-fetch express redis cors dotenv express-oauth2-jwt-bearer
-```
-
-
-### devDependencies version requirements :
-
-Note : You can also see the command line to install each devDependency. 
-
-- [eslint](https://www.npmjs.com/package/eslint) : ^8.45.0
-```
-npm init @eslint/config
-```
-
-- [nodemon](https://www.npmjs.com/package/nodemon) : ^3.0.1
-```
-npm install --save-dev nodemon
-```
+- To request the weather, you must have an account with OpenWeather. Register [here](https://openweathermap.org/) 
 
 ## Documentation
 
@@ -118,6 +61,8 @@ _This practice prevents hardcoding values, an unsecure way of developping applic
 
 - CLIENT_URL : Website link were the meteo app is rendered.
 
+- OPENW_KEY : Environment variable representing the audience for authentication.
+
 - REDIS_PORT: The port number for the Redis server (default is 6379).
 
 - REDIS_HOST: The hostname of the Redis server (default is 'localhost').
@@ -131,6 +76,8 @@ _This practice prevents hardcoding values, an unsecure way of developping applic
 The server uses OAuth2 JWT authentication to secure the private endpoints. Users need to include a valid JWT in the request headers to access these endpoints. The JWT should have the required scope of 'read:messages' for the '/api/private-scoped' endpoint.
 
 Note : The authentication process and settings are managed in Auth0 [Dashboard](https://auth0.com/docs/get-started/auth0-overview/dashboard).
+
+Note: To use the app, you must have an application with Auth0.
 
 
 ### Endpoints

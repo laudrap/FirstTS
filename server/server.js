@@ -78,6 +78,12 @@ const AUTH_ISSUER = process.env.AUTH_ISSUER
 const AUTH_AUDIENCE = process.env.AUTH_AUDIENCE
 
 /**
+ * Environment variable representing the token for OpenWeather API.
+ * @type {string}
+ */
+const OPENW_KEY = process.env.OPENW_KEY
+
+/**
  * Create a new Express application.
  * @type {Express}
  */
@@ -225,7 +231,7 @@ async function getweather(req, res) {
             res.send(setResponse(country, main, feels, feelslike, ville, humid))
         } else {
             /* Make the API request to fetch weather data for the specified location */
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=ddcb7ebff34fe073865e71aa9b50c157`)
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${OPENW_KEY}`)
 
             /* Parse the API response into JSON format */
             const data = await response.json()
