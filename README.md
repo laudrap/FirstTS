@@ -106,6 +106,19 @@ Note : Click [here](https://github.com/laudrap/FirstTS/edit/main/server/ReadMe.m
      - ***main.tsx*** : Renders the Main components from Main2.tsx on an HTML webpage and implements OAuth with Auth0.
      - ***index.css***: Contains all the css code. 
 
+## Environment Variables
+_Meteo Folder_
+
+- VITE_AUTH0_DOMAIN: The domain of the Auth0 authentication service for the application.
+
+- VITE_AUTH0_CLIENT_ID: The client ID associated with your Auth0 application.
+
+Note : 
+
+1. Set these environment variables in your application's configuration or deployment settings.
+2. Keep the values confidential and avoid sharing them publicly.
+3. Securely store and access environment variables in your application to prevent security risks.
+
 
 ## 🙌 Contributing
 
